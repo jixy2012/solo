@@ -70,6 +70,8 @@ def query(input_data):
     qry_folder = 'demo_query_%s' % str(uuid.uuid4())
     query_dir = os.path.join(data_dir, dataset, qry_folder)
     test_args = create_test_args(qry_folder)
+    print("test_args: ", test_args)
+     
     qry_data_dir = os.path.join(query_dir, 'test')
     if not os.path.isdir(qry_data_dir):
         os.makedirs(qry_data_dir)
@@ -133,7 +135,7 @@ def create_test_args(query_dir):
         bnn=1,
     )
     return test_args
-
+import sys
 def app_init():
     print('app_init')
     random.seed(0)
@@ -142,12 +144,15 @@ def app_init():
     global dataset
     args = get_args()
     work_dir = args.work_dir
+    print(f"work dir: {work_dir}")
     data_dir = os.path.join(work_dir, 'data')
+    print(data_dir)
     dataset = args.dataset
 
     load_tables()
     load_example_questions()
     load_index(args)
+    print(args)
 
 if __name__ == '__main__':
     app_init()
