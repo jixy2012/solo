@@ -8,7 +8,7 @@ import uuid
 import glob
 import random
 import sys
-
+from typing import Dict, List
 csv.field_size_limit(sys.maxsize)
 
 def get_out_file(args):
@@ -25,7 +25,7 @@ def read_meta(meta_file):
         meta_data = json.load(f)
     return meta_data
 
-def read_table(arg_info):
+def read_table(arg_info: Dict):
     csv_file = arg_info['data_file']
     meta_file = arg_info['meta_file']
     file_name = os.path.basename(os.path.splitext(csv_file)[0])

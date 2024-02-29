@@ -28,8 +28,7 @@ def set_python_path():
     for path in paths_to_add:
         if path not in sys.path:
             sys.path.insert(0, path)
-    # for path in sys.path:
-    #     print(path)
+
 set_python_path()
 
 import tester
@@ -66,7 +65,7 @@ def get_top_tables(out_dir):
 
 
 # returns the table id from running a query
-def main(question: str, dataset: str) -> Dict:
+def run_query(question: str, dataset: str) -> Dict:
     random.seed(0)
     work_dir = os.path.dirname(os.getcwd())
     data_dir = os.path.join(work_dir, 'data')
@@ -127,4 +126,4 @@ def query(question: str, args: argparse.Namespace, table_dict: Dict[str, Dict], 
     return table_data_lst
 
 
-main("how old is Linda Taylor?", "fetaqa")
+# query("how old is Linda Taylor?", "fetaqa")

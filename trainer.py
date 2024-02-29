@@ -12,13 +12,17 @@ import finetune_table_retr as model_trainer
 import datetime
 import torch
 from enum import Enum
+from typing import Dict, List
 
 class ConfirmOption(Enum):
     UseExisting = 1
     CreateNew = 2
     Exit = 3
 
-def read_config():
+def read_config() -> Dict:
+    '''
+    read the system config file as a dictionary
+    '''
     with open('./system.config') as f:
        config = json.load(f)
     return config
